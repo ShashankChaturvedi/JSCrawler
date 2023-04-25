@@ -65,7 +65,7 @@ app.post("/screenshots", async (req, res) => {
   const screenshotPromises = pageUrls.map(async (pageUrl) => {
     if (pageUrl.startsWith(url)) {
       const newPage = await browser.newPage();
-      await newPage.goto(pageUrl,{ timeout: 60000 });
+      await newPage.goto(pageUrl,{ timeout: 100000 });
       const screenshot = await newPage.screenshot({ fullPage: true });
       await newPage.close();
 
